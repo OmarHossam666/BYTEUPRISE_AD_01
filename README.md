@@ -1,16 +1,27 @@
-# byteuprise_ad_01
+# Tic Tac Toe Game App 🎮
 
-A new Flutter project.
+## Overview
+This is a simple and fun **Tic Tac Toe** game app developed using **Flutter** for Android devices. The game allows two players to take turns placing their symbols (X or O) on a 3x3 grid. The objective is to form a horizontal, vertical, or diagonal line of three of their symbols to win. 
 
-## Getting Started
+## Features
+- **Two-player mode**: Players alternate turns to place their symbols on the grid.
+- **Win detection**: Automatically detects when a player wins by forming a line of three symbols.
+- **Reset option**: Includes a reset button to start a new game easily.
+- **Intuitive UI**: Simple and interactive user interface for a smooth gameplay experience.
+- **Flutter framework**: Built using Flutter, ensuring cross-platform compatibility for future expansions.
 
-This project is a starting point for a Flutter application.
+## Technologies Used
+- **Flutter**
+- **Dart**
 
-A few resources to get you started if this is your first Flutter project:
+## How to Play
+- The game board consists of a 3x3 grid.
+- Two players take turns placing either an X or an O on the grid.
+- The first player to align three of their symbols in a row (horizontally, vertically, or diagonally) wins the game!
+- If all the cells are filled and no player has won, the game ends in a draw.
+- Press the Reset button to start a new game.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Future Improvements
+- Implement AI for single-player mode.
+- Add sound effects and animations.
+- Expand the app to support online multiplayer.
