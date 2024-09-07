@@ -12,6 +12,8 @@ class _TicTacToeState extends State<TicTacToe> {
   String currentPlayer = "X";
   String winner = "";
   bool isTie = false;
+  int player1Score = 0;
+  int player2Score = 0;
 
   void movePlayer(int index) {
     if (winner != "" || board[index] != "") {
@@ -22,6 +24,7 @@ class _TicTacToeState extends State<TicTacToe> {
       board[index] = currentPlayer;
       currentPlayer = currentPlayer == "X" ? "O" : "X";
       checkForWinner();
+      trackScore();
     });
   }
 
@@ -56,6 +59,19 @@ class _TicTacToeState extends State<TicTacToe> {
     if (!board.contains("")) {
       setState(() {
         isTie = true;
+      });
+    }
+  }
+
+  void trackScore() {
+    if (winner == "X") {
+      setState(() {
+        player1Score++;
+      });
+    } 
+    else if (winner == "O") {
+      setState(() {
+        player2Score++;
       });
     }
   }
@@ -96,17 +112,17 @@ class _TicTacToeState extends State<TicTacToe> {
                         blurRadius: 3,
                       ),
                     ]),
-                child: const Padding(
-                  padding: EdgeInsets.all(20),
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.person,
                         color: Colors.white38,
                         size: 60,
                       ),
-                      SizedBox(height: 10),
-                      Text(
+                      const SizedBox(height: 10),
+                      const Text(
                         "Player 1",
                         style: TextStyle(
                           color: Colors.white,
@@ -114,10 +130,19 @@ class _TicTacToeState extends State<TicTacToe> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Text(
+                      const SizedBox(height: 10),
+                      const Text(
                         "X",
                         style: TextStyle(
+                          color: Colors.cyan,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        "Score: $player1Score",
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -142,17 +167,17 @@ class _TicTacToeState extends State<TicTacToe> {
                         blurRadius: 3,
                       ),
                     ]),
-                child: const Padding(
-                  padding: EdgeInsets.all(20),
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.person,
                         color: Colors.white38,
                         size: 60,
                       ),
-                      SizedBox(height: 10),
-                      Text(
+                      const SizedBox(height: 10),
+                      const Text(
                         "Player 2",
                         style: TextStyle(
                           color: Colors.white,
@@ -160,10 +185,19 @@ class _TicTacToeState extends State<TicTacToe> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Text(
+                      const SizedBox(height: 10),
+                      const Text(
                         "O",
                         style: TextStyle(
+                          color: Colors.orange,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        "Score: $player2Score",
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -230,10 +264,11 @@ class _TicTacToeState extends State<TicTacToe> {
                     child: Center(
                       child: Text(
                         board[index],
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 50,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
+                          color:
+                              board[index] == "X" ? Colors.cyan : Colors.orange,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
